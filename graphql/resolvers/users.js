@@ -72,11 +72,8 @@ module.exports = {
       };
     },
     login: async (_, { username, password }) => {
-      console.log("inside login");
       const { errors, valid } = validateLoginInput(username, password);
 
-      console.log("error ", errors);
-      console.log("valid ", valid);
       if (!valid) {
         throw new UserInputError("Errors", { errors });
       }
